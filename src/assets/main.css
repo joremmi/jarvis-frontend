@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Barlow Condensed', sans-serif;
+  }
+  
+  body {
+    @apply font-sans bg-gray-50;
+  }
+}
+
+@layer components {
+  .container {
+    @apply max-w-7xl mx-auto px-4;
+  }
+
+  .card {
+    @apply border-b border-secondary/10 h-[50vh] p-8 rounded-lg 
+    bg-slate-50 flex flex-col justify-between items-start;
+  }
+
+  .modern-button {
+    @apply relative overflow-hidden transition-all duration-300 
+    shadow-lg bg-primary text-white no-underline px-5 py-4 
+    rounded-lg font-bold hover:shadow-xl hover:bg-primary-dark;
+  }
+
+  .page-container {
+    @apply container mx-auto px-4 py-8;
+  }
+
+  .section-title {
+    @apply text-3xl font-bold mb-6;
+  }
+
+  .section-description {
+    @apply text-gray-600 mb-8;
+  }
+}
+
+/* Custom styles that don't fit into Tailwind classes */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+

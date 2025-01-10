@@ -1,0 +1,62 @@
+<template>
+  <div class="bg-white p-6 rounded-lg shadow-sm">
+    <h3 class="text-lg font-semibold mb-4">User Growth</h3>
+    <Line :data="chartData" :options="chartOptions" />
+  </div>
+</template>
+
+<script>
+import { Line } from "vue-chartjs";
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+} from "chart.js";
+
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend
+);
+
+export default {
+  name: "UsersChart",
+  components: { Line },
+  props: {
+    chartData: {
+      type: Object,
+      required: true,
+    },
+  },
+  setup() {
+    const chartOptions = {
+      responsive: true,
+      maintainAspectRatio: false,
+      scales: {
+        y: {
+          beginAtZero: true,
+          ticks: {
+            stepSize: 1,
+          },
+        },
+      },
+      plugins: {
+        legend: {
+          position: "top",
+        },
+      },
+    };
+
+    return { chartOptions };
+  },
+};
+</script>
